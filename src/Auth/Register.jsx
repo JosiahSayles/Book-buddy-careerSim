@@ -10,10 +10,12 @@ function Register() {
   const tryRegister = async (formData) => {
     setError(null);
 
-    const username = formData.get("username");
+    const firstname = formData.get("firstname");
+    const lastname = formData.get("lastname");
+    const email = formData.get("email");
     const password = formData.get("password");
     try {
-      await register({ username, password });
+      await register({ firstname, lastname, email, password });
     } catch (err) {
       setError(err.message);
     }
@@ -22,10 +24,18 @@ function Register() {
   return (
     <>
       <h1>Register for an account</h1>
-      <form>
+      <form action={tryRegister}>
         <label>
-          Username
-          <input type="text" name="username" required />
+          First Name
+          <input type="text" name="firstname" />
+        </label>
+        <label>
+          Last Name
+          <input type="text" name="lastname" />
+        </label>
+        <label>
+          Email
+          <input type="text" name="email" required />
         </label>
         <label>
           Password

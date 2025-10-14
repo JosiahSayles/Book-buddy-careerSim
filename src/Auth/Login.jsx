@@ -1,0 +1,38 @@
+import React from "react";
+import { useState } from "react";
+import { useAuth } from "./AuthContext";
+import { Link, useNavigate } from "react-router";
+
+function Login() {
+  const [error, setError] = useState();
+  const login = useAuth();
+
+  const tryLogin = async (formData) => {
+    setError(null);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+    try {
+      await login({ email, password });
+    } catch (err) {
+      setError(err);
+    }
+  };
+  return (
+    <>
+      <h1>Login</h1>
+      <form action={tryLogin}>
+        <label>
+          <input type="text" name="email" required />
+        </label>
+        <label>
+          <input type="text" name="password" required />
+        </label>
+        {error && <p role="alert">{error}</p>}
+      </form>
+      <Link>Need an Account? Register here!</Link>
+    </>
+  );
+}
+
+export default Login;
