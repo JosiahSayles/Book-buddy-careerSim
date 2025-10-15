@@ -5,7 +5,10 @@ export default function Navbar() {
   const { logout, token } = useAuth();
   return (
     <header>
-      <p>Book Buddy</p>
+      <NavLink to="/" className="navbar">
+        <img src="/books.png" alt="Book Buddy Logo" width={20} />
+        <p>Book Buddy</p>
+      </NavLink>
       <nav>
         <NavLink to="/">Books</NavLink>
         {token ? (

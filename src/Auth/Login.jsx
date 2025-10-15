@@ -5,7 +5,8 @@ import { Link, useNavigate } from "react-router";
 
 function Login() {
   const [error, setError] = useState();
-  const login = useAuth();
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const tryLogin = async (formData) => {
     setError(null);
@@ -14,8 +15,9 @@ function Login() {
     const password = formData.get("password");
     try {
       await login({ email, password });
+      navigate("/");
     } catch (err) {
-      setError(err);
+      setError(err.message);
     }
   };
   return (
@@ -28,6 +30,7 @@ function Login() {
         <label>
           <input type="text" name="password" required />
         </label>
+        <button>Log in </button>
         {error && <p role="alert">{error}</p>}
       </form>
       <Link to={"/register"}>Need an Account? Register here!</Link>

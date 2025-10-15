@@ -17,10 +17,14 @@ export default function AccountPage() {
       <h1>Welcome {user.firstname} </h1>
       <p>Your email on file with us is {user.email}</p>
       <h2>Your reservations</h2>
-      <p>
-        You have not reserved any books yet. Browse
-        <Link to="/">our catalog!</Link>
-      </p>
+      {!user.reservations ? (
+        <p>You have these books reserved {user.reservations} </p>
+      ) : (
+        <p>
+          You have not reserved any books yet. Browse
+          <Link to="/">our catalog!</Link>
+        </p>
+      )}
     </>
   );
 }

@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
     });
     const result = await res.json();
     if (!res.ok) {
-      throw Erorr(result.message);
+      throw Error(result.message || "something went wrong");
     }
     setToken(result.token);
     setUser(result.user);
@@ -29,10 +29,16 @@ function AuthProvider({ children }) {
     });
     const result = await res.json();
     if (!res.ok) {
-      throw Erorr(result.message);
+      throw Error(result.message || "something went wrong");
     }
-    setToken(result.token);
-    setUser(result.user);
+    const userToken = result.token;
+
+    const accountInfo = await fetch(API + "/users/me", {
+      headers: { Authorization: `Bearer ${userToken}` },
+    });
+    const account = await accountInfo.json();
+    setToken(userToken);
+    setUser(account);
   };
 
   const logout = () => {

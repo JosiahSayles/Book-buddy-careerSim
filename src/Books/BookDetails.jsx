@@ -20,7 +20,6 @@ export default function BookDetails() {
   return (
     <article>
       <div className="book-card">
-        <h1>{bookDetails.title}</h1>
         <figure>
           <img
             alt={bookDetails.title}
@@ -28,8 +27,11 @@ export default function BookDetails() {
             width={80}
           />
         </figure>
-        <p>{bookDetails.author}</p>
-        <p>{bookDetails.description}</p>
+        <section>
+          <h1>{bookDetails.title}</h1>
+          <p>{bookDetails.author}</p>
+          <p>{bookDetails.description}</p>
+        </section>
       </div>
       {token && <button>Reserve this book</button>}
     </article>
