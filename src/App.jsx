@@ -12,6 +12,7 @@ export default function App() {
         <Route index element={<BookPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/details" element={<BookDetails />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="*" element={<Error404 />} />
       </Route>
