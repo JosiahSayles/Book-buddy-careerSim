@@ -30,7 +30,7 @@ function Login() {
         </label>
         {error && <p role="alert">{error}</p>}
       </form>
-      <Link>Need an Account? Register here!</Link>
+      <Link to={"/register"}>Need an Account? Register here!</Link>
     </>
   );
 }

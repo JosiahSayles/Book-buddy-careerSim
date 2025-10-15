@@ -5,7 +5,7 @@ import { useAuth } from "./AuthContext";
 function Register() {
   const [error, setError] = useState();
   const navigate = useNavigate();
-  const register = useAuth();
+  const { register } = useAuth();
 
   const tryRegister = async (formData) => {
     setError(null);
@@ -16,6 +16,7 @@ function Register() {
     const password = formData.get("password");
     try {
       await register({ firstname, lastname, email, password });
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }

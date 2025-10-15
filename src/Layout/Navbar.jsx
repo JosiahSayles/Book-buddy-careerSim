@@ -7,14 +7,14 @@ export default function Navbar() {
     <header>
       <p>Book Buddy</p>
       <nav>
-        <NavLink to="">Books</NavLink>
+        <NavLink to="/">Books</NavLink>
         {token ? (
-          ((<NavLink to="">Account</NavLink>),
-          (<button onClick={() => logout()}>Logout</button>))
-        ) : (
           <>
-            <NavLink to="">Log in</NavLink>
+            <NavLink to="/account">Account</NavLink>
+            <button onClick={() => logout()}>Logout</button>
           </>
+        ) : (
+          <NavLink to="/login">Log in</NavLink>
         )}
       </nav>
     </header>

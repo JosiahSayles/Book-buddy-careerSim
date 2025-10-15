@@ -4,6 +4,8 @@ import Layout from "./Layout/layout";
 import Register from "./Auth/register";
 import Login from "./Auth/Login";
 import Error404 from "./Error404";
+import BookDetails from "./Books/BookDetails";
+import AccountPage from "./Account/AccountPage";
 
 export default function App() {
   return (
@@ -12,7 +14,7 @@ export default function App() {
         <Route index element={<BookPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/details" element={<BookDetails />} />
+        <Route path="/details/:book" element={<BookDetails />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="*" element={<Error404 />} />
       </Route>

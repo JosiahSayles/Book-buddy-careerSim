@@ -3,7 +3,7 @@ import { getBooks } from "../API/Books";
 import BookList from "./BookList";
 
 export default function BookPage() {
-  const [books, setBooks] = useState();
+  const [books, setBooks] = useState([]);
 
   const syncBooks = async () => {
     const data = await getBooks();

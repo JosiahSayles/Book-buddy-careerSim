@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 export default function BookList({ books, syncBooks }) {
   return (
@@ -12,12 +13,12 @@ export default function BookList({ books, syncBooks }) {
 
 function BookListItem({ book }) {
   return (
-    <article>
+    <article className="book-list">
       <h2>
-        <Link to={"/details/" + book.id}>{book.title}</Link>
+        <Link to={`/details/${book.id}`}>{book.title}</Link>
       </h2>
       <figure>
-        <img alt={book.title} src={book.coverimage} />
+        <img alt={book.title} src={book.coverimage} width={80} />
       </figure>
       <p>
         {book.author} {book.description}
