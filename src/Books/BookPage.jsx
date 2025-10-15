@@ -18,7 +18,7 @@ export default function BookPage() {
     <>
       <h1>Catalog</h1>
       <label>
-        <input type="text" name="searchbar" id="" text="search for a book" />
+        <input type="text" name="searchbar" id="" />
         <button>Search</button>
       </label>
       <BookList books={books} syncBooks={syncBooks} />
