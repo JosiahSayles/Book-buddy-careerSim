@@ -20,6 +20,7 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
+  border-bottom: 2px solid rgb(224, 222, 222);
 }
 
 header nav {
@@ -31,10 +32,12 @@ header nav {
   display: flex;
   align-items: flex-start;
   gap: 1ch;
+  font-weight: 700;
 }
 
 a {
   color: teal;
+  text-decoration: none;
 }
 
 a:hover {
