@@ -11,7 +11,7 @@ main {
 }
 
 #root {
-  width: 45ch;
+  width: 75ch;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -49,4 +49,71 @@ ol {
 
 p[role="alert"] {
   color: red;
+}
+
+.book-card {
+  display: flex;
+  align-items: center;
+  background-color: lightgrey;
+  gap: 2ch;
+  padding-left: 1ch;
+  margin: 2ch;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: row;
+  margin: 2ch;
+  background-color: lightgrey;
+  gap: 2ch;
+  padding-left: 1ch;
+  list-style: none;
+}
+
+.book {
+  display: flex;
+  gap: 2ch;
+}
+
+.author {
+  font-style: italic;
+  font-weight: 900;
+}
+
+.reserve-button {
+  width: 100%;
+  height: 10%;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: teal;
+  color: white;
+  font-weight: 700;
+}
+
+.reservations {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60%;
+  font-size: 1rem;
+  gap: 2ch;
+  list-style-type: none;
+  background-color: lightgrey;
+  margin: 2ch;
+}
+
+.return-button {
+  margin-left: 3ch;
+  width: 5vw;
+}
+
+.search {
+  display: flex;
+  margin-left: 4ch;
+  margin-right: 2ch;
+}
+.search input {
+  width: 100%;
 }

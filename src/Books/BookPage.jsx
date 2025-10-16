@@ -17,8 +17,12 @@ export default function BookPage() {
   return (
     <>
       <h1>Catalog</h1>
-      <label>
-        <input type="text" name="searchbar" id="" />
+      <label className="search">
+        <input
+          type="text"
+          name="searchbar"
+          placeholder="Search for a book..."
+        />
         <button>Search</button>
       </label>
       <BookList books={books} syncBooks={syncBooks} />

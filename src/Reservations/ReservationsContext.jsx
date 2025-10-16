@@ -25,6 +25,7 @@ export default function ReservationsProvider({ children }) {
     const newReservation = {
       ...result,
       title: book.title,
+      author: book.author,
     };
     setReservedBooks((prev) => [...prev, newReservation]);
   };

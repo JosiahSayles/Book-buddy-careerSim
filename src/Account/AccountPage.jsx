@@ -22,9 +22,11 @@ export default function AccountPage() {
       {reservedBooks.length > 0 ? (
         <ul>
           {reservedBooks.map((book) => (
-            <li key={book.id}>
-              {book.title}
+            <li className="reservations" key={book.id}>
+              <Link to={`/details/${book.bookid}`}>{book.title}</Link>{" "}
+              {book.author}
               <button
+                className="return-button"
                 onClick={async () => {
                   try {
                     await returnABook(book.id);
@@ -40,7 +42,10 @@ export default function AccountPage() {
           ))}
         </ul>
       ) : (
-        <p>No reservations yet!</p>
+        <p>
+          You have not reserved any books yet. Browse
+          <Link to="/"> our Catalog!</Link>
+        </p>
       )}
     </>
   );

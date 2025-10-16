@@ -15,15 +15,18 @@ function BookListItem({ book }) {
   return (
     <ul className="book-list">
       <li className="book">
-        <h2>
-          <Link to={`/details/${book.id}`}>{book.title}</Link>
-        </h2>
         <figure>
-          <img alt={book.title} src={book.coverimage} width={80} />
+          <img alt={book.title} src={book.coverimage} width={100} />
         </figure>
-        <p>
-          {book.author} {book.description}
-        </p>
+        <div className="book-info">
+          <h2>
+            <Link to={`/details/${book.id}`}>{book.title}</Link>
+          </h2>
+          <p className="author">{book.author}</p>
+          <p>
+            {book.author} {book.description}
+          </p>
+        </div>
       </li>
     </ul>
   );
