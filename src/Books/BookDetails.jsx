@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useAuth } from "../Auth/AuthContext";
 import { getBook } from "../API/books";
+import { useReservations } from "../Reservations/ReservationsContext";
 
 export default function BookDetails() {
   const { book } = useParams();
   const [bookDetails, setBookDetails] = useState(null);
   const { token } = useAuth();
+  const { reserveABook } = useReservations();
+  const [error, setError] = useState();
 
   useEffect(() => {
     const syncBook = async () => {
@@ -33,7 +36,20 @@ export default function BookDetails() {
           <p>{bookDetails.description}</p>
         </section>
       </div>
-      {token && <button>Reserve this book</button>}
+      {token && (
+        <button
+          onClick={async () => {
+            try {
+              await reserveABook(bookDetails);
+              alert("Book reserverd Successfully");
+            } catch (err) {
+              alert("Error reserving book " + err.message);
+            }
+          }}
+        >
+          Reserve this book
+        </button>
+      )}
     </article>
   );
 }

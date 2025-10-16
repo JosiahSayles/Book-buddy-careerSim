@@ -3,11 +3,14 @@ import "./index.css";
 import App from "./App.jsx";
 import AuthProvider from "./Auth/AuthContext.jsx";
 import { BrowserRouter } from "react-router";
+import ReservationsProvider from "./Reservations/ReservationsContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ReservationsProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ReservationsProvider>
   </AuthProvider>
 );

@@ -1,9 +1,11 @@
-import React from "react";
 import { Link } from "react-router";
 import { useAuth } from "../Auth/AuthContext";
+import { useReservations } from "../Reservations/ReservationsContext";
 
 export default function AccountPage() {
+  const { returnABook, reservedBooks } = useReservations();
   const { user } = useAuth();
+
   if (!user)
     return (
       <>
@@ -17,13 +19,28 @@ export default function AccountPage() {
       <h1>Welcome {user.firstname} </h1>
       <p>Your email on file with us is {user.email}</p>
       <h2>Your reservations</h2>
-      {!user.reservations ? (
-        <p>You have these books reserved {user.reservations} </p>
+      {reservedBooks.length > 0 ? (
+        <ul>
+          {reservedBooks.map((book) => (
+            <li key={book.id}>
+              {book.title}
+              <button
+                onClick={async () => {
+                  try {
+                    await returnABook(book.id);
+                    alert("Book returned Successfully");
+                  } catch (err) {
+                    console.error("Error returning book " + err.message);
+                  }
+                }}
+              >
+                Return book
+              </button>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <p>
-          You have not reserved any books yet. Browse
-          <Link to="/">our catalog!</Link>
-        </p>
+        <p>No reservations yet!</p>
       )}
     </>
   );
