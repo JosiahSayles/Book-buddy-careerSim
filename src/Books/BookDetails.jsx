@@ -36,14 +36,13 @@ export default function BookDetails() {
           <p>{bookDetails.description}</p>
         </section>
       </div>
-      <Link to="/">
+      <Link to="/account">
         {token && (
           <button
             className="reserve-button"
             onClick={async () => {
               try {
                 await reserveABook(bookDetails);
-                alert("Book reserverd Successfully");
               } catch (err) {
                 alert("Error reserving book " + err.message);
               }
